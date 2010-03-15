@@ -27,8 +27,8 @@ requires:
   DateTime::Format::Atom: 0
   File::Slurp: 0
   MIME::Types: 0
-  Mouse: 0.40
-  Net::Google::DataAPI: 0.15
+  Mouse: 0.51
+  Net::Google::DataAPI: 0.17
   String::CamelCase: 0.02
   URI: 0
   URI::Escape: 0
@@ -38,4 +38,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/lopnor/Net-Google-DocumentsList.git
-version: 0.01
+version: 0.02
