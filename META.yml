@@ -4,12 +4,10 @@ author:
   - 'Noubo Danjou <nobuo.danjou@gmail.com>'
 build_requires:
   ExtUtils::MakeMaker: 6.42
-  File::BOM: 0
-  Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.95'
+generated_by: 'Module::Install version 1.00'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -28,14 +26,13 @@ requires:
   File::Slurp: 0
   MIME::Types: 0
   Mouse: 0.51
-  Net::Google::DataAPI: 0.17
+  Net::Google::DataAPI: 0.23
   String::CamelCase: 0.02
   URI: 0
   URI::Escape: 0
   XML::Atom: 0
-  namespace::autoclean: 0
   perl: 5.8.1
 resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/lopnor/Net-Google-DocumentsList.git
-version: 0.04
+version: 0.05
