@@ -26,7 +26,7 @@ requires:
   File::Slurp: 0
   MIME::Types: 0
   Mouse: 0.51
-  Net::Google::DataAPI: 0.23
+  Net::Google::DataAPI: 0.24
   String::CamelCase: 0.02
   URI: 0
   URI::Escape: 0
@@ -35,4 +35,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/lopnor/Net-Google-DocumentsList.git
-version: 0.06
+version: 0.07
