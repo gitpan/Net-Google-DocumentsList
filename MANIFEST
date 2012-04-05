@@ -37,6 +37,7 @@ t/07_copy.t
 t/08_publish.t
 t/09_translate.t
 t/10_export.t
+t/11_upload_large.t
 t/data/english.txt
 t/data/foobar.pdf
 t/data/foobar.txt
