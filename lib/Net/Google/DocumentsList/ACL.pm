@@ -126,6 +126,18 @@ Net::Google::DocumentsList::ACL - Access Control List object for Google Document
     }
   );
 
+  # don't send email notification
+  $doc->add_acl(
+    {
+        role => 'writer',
+        scope => {
+            type => 'user',
+            value => 'hoge.fuga@gmail.com',
+        },
+        send_notification_emails => 'false',
+    }
+  );
+
   # adding acl with authorization keys
   # users who knows the key can write the doc
   my $acl = $doc->add_acl(
@@ -176,7 +188,7 @@ see L<http://code.google.com/intl/en/apis/documents/docs/3.0/developers_guide_pr
 
 =head1 AUTHOR
 
-Noubo Danjou E<lt>nobuo.danjou@gmail.comE<gt>
+Noubo Danjou E<lt>danjou@soffritto.orgE<gt>
 
 =head1 SEE ALSO
 

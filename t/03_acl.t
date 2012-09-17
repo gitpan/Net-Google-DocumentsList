@@ -23,6 +23,7 @@ is $acl[0]->scope->{value}, config->{username};
 {
     ok my $new_acl = $d->add_acl(
         {
+            send_notification_emails => 'false',
             role => 'reader',
             scope => {
                 type => 'user',

@@ -1,9 +1,11 @@
 ---
 abstract: 'Perl interface to Google Documents List Data API'
 author:
-  - 'Noubo Danjou <nobuo.danjou@gmail.com>'
+  - 'Noubo Danjou <danjou@soffritto.org>'
 build_requires:
   ExtUtils::MakeMaker: 6.59
+  File::BOM: 0
+  Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.59
 distribution_type: module
@@ -28,7 +30,7 @@ requires:
   File::stat: 0
   MIME::Types: 0
   Mouse: 0.51
-  Net::Google::DataAPI: 0.26
+  Net::Google::DataAPI: 0.2802
   String::CamelCase: 0.02
   URI: 0
   URI::Escape: 0
@@ -37,4 +39,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/lopnor/Net-Google-DocumentsList.git
-version: 0.08
+version: 0.09

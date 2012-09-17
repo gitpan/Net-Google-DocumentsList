@@ -5,7 +5,7 @@ use Net::Google::DataAPI;
 use URI;
 use MIME::Types;
 use File::stat;
-use Carp;
+use Carp 'confess';
 
 requires 'items', 'item', 'add_item';
 
@@ -13,8 +13,17 @@ around items => sub {
     my ($next, $self, $cond) = @_;
 
     my @items;
-    my $resource_id = delete $cond->{resource_id};
-    if (my $cats = delete $cond->{category}) {
+    if (my $resource_id = delete $cond->{resource_id}) {
+        my $atom = eval {$self->service->get_entry(
+            join('/', $self->service->item_feedurl, $resource_id)
+        )} or return;
+        my $class = $self->item_entryclass;
+        Any::Moose::load_class($class);
+        @items = $class->new(
+            $self->can('sync') ? (container => $self) : (service => $self),
+            atom => $atom,
+        );
+    } elsif (my $cats = delete $cond->{category}) {
         $cats = [ "$cats" ] unless ref $cats eq 'ARRAY';
         @items = $self->items_with_category('item', $cats, $cond);
     } else {
@@ -22,9 +31,6 @@ around items => sub {
     }
     if ($self->can('sync')) {
         @items = grep {$_->parent eq $self->_url_with_resource_id} @items;
-    }
-    if ($resource_id) {
-        @items = grep {$_->resource_id eq $resource_id} @items;
     }
     @items;
 };
@@ -288,7 +294,7 @@ returns the first folder found by folders method.
 
 =head1 AUTHOR
 
-Noubo Danjou E<lt>nobuo.danjou@gmail.comE<gt>
+Noubo Danjou E<lt>danjou@soffritto.orgE<gt>
 
 =head1 SEE ALSO
 
